@@ -1,30 +1,33 @@
 
 <br>
-<h2>Run Code C#</h2> 
-<h4>select option</h4>
-<select class="form-control" [(ngModel)]="type">
-    <option [value]="0">--Seleccione--</option>
-    <option [value]="1">Only Function</option>
-    <option [value]="2">Any code</option>
-</select>
-<form [formGroup]="frmrun">
-    <textarea cols="3" rows="15" class="form-control" formControlName="script">
-    </textarea>
-    <br>
-    <div class="form-group">
-        <button class="btn btn-lg btn-success me-2" (click)="run()">Run</button>
-        <button class="btn btn-lg btn-secondary" (click)="clear()">Clear</button>
+<div class="row">
+    <div class="col-md-8">
+        <h2>Run Code C#</h2> 
+        <h4>select option</h4>
+        <select class="form-control" [(ngModel)]="type" (change)="changeSelect($event.target)">
+            <option value="0" [attr.selected]='true'>--Seleccione--</option>
+            <option value="1">Only Function(example)</option>
+            <option value="2">Any code</option>
+        </select>
+        <form [formGroup]="frmrun">
+            <textarea cols="3" rows="15" class="form-control editor" formControlName="script" [ngModel]="textexample">
+            </textarea>
+            <br>
+            <div class="form-group">
+                <button [disabled]="(frmrun.invalid)" class="btn btn-lg btn-success me-2" (click)="run()">Run</button>
+                <button class="btn btn-lg btn-secondary" (click)="clear()">Clear</button>
+            </div>
+        </form>
     </div>
-</form>
-
-<h2>
-    Result
-</h2>
-
-<div *ngIf="resultarray">
-    <p *ngFor="let val of resultarray">{{val}}</p>
+    <div class="col-md-4">
+        <h2 > Result </h2>
+        <h5 class="mt-5">Output</h5>
+        <div >
+            <textarea readonly cols="3" rows="15" class="form-control" style="background-color: #e8e8e8;" [ngModel]="result">
+            </textarea>
+        </div>
+        
+    </div>
 </div>
-<div *ngIf="result">
-    <p>{{result}}</p>
-</div>
+
 

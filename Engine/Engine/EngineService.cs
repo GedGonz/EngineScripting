@@ -34,29 +34,31 @@ namespace ServicesEngine.Engine
 
             script = script.ContinueWith("return getUser();");
             var complie = script.Compile();
+
+            if (complie.Length > 0)
+                return new { ReturnValue = complie.Select(x => x.GetMessage()).Aggregate((current, value) => $"{current},{value}") };
             
             var result = await script.RunAsync(user);
 
-            return result.ReturnValue;
+            return new { result.ReturnValue };
         }
 
         public async Task<object> Execute(string SciptTxt)
         {
-            var nameMethod = SciptTxt.TrimStart().Split(' ')[2].Split('(')[0];
+            var nameMethod = ""; 
+
+            if (SciptTxt.TrimStart().StartsWith("p"))
+                nameMethod = SciptTxt.TrimStart().Split(' ')[2].Split('(')[0];
+            else
+                nameMethod = SciptTxt;
+
             var user = new User();
-            var dat = getUser();
             var option = Options();
-            var script = CSharpScript.Create(SciptTxt, option, typeof(User));
-            script = script.ContinueWith(@"
-                public object getUser()
-                {
-                    return " + nameMethod + @"();
-                }");
-
-            script = script.ContinueWith("return getUser();");
+            var script = CSharpScript.Create(SciptTxt, option);
             var complie = script.Compile();
-
-            var result = await script.RunAsync(user);
+            if (complie.Length > 0)
+                return new { ReturnValue = complie.Select(x => x.GetMessage()).Aggregate((current, value) => $"{current},{value}") };
+            var result = await script.RunAsync();
 
             return new { result.ReturnValue };
         }
