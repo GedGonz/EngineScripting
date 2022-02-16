@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "26HvfWXSf2CSLKj5Kr58ucYGzECbgRy63PuhlJ3TbgsqiZlobyPB6xbBYx5dWcdvcUqH9/ek4SeyIaCGFk+alA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gerald Gonzalez\\source\\repos\\EngineScripting\\Engine\\ServicesEngine.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.codeanalysis.common\\4.1.0-3.final\\microsoft.codeanalysis.common.4.1.0-3.final.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.1.0-3.final\\microsoft.codeanalysis.csharp.4.1.0-3.final.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.codeanalysis.csharp.scripting\\4.1.0-3.final\\microsoft.codeanalysis.csharp.scripting.4.1.0-3.final.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.1.0-3.final\\microsoft.codeanalysis.scripting.common.4.1.0-3.final.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\Gerald Gonzalez\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
+  "logs": []
+}
