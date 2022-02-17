@@ -1,0 +1,7 @@
+
+//method to compare
+public bool Convertir1(List<User> user,string lu1){
+     
+     return (user.Any(x => ($"{x.name[0].ToString().ToLower()}{x.lastname.ToLower()}") == lu1));
+     
+}
