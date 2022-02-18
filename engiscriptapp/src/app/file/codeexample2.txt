@@ -1,7 +1,41 @@
-public double sum(int a, int b)
+
+
+//This is an example of comparison with two input lists
+
+public object getUser()
 {
 
-     return a + b;
+     var userText = new List<string>() { "ggonzalez", "caburto", "gmasaya", "hmorales", "clopez", "pgaitan","g.gonzalez","h.morales" };
+
+     var usersObject =  new List<User>()
+            { 
+                new User(){ Id=1, name="Gerld", lastname="Gonzalez", Adress="masaya"},
+                new User(){ Id=1, name="Helen", lastname="Morales", Adress="managua"},
+                new User(){ Id=1, name="carlos", lastname="Lopez", Adress="managua"}
+            };
+
+     var result = new List<string>();
+     for (var i = 0; i < userText.Count; i++)
+     {
+          if (!Compare1(usersObject, userText[i]))
+               result.Add(userText[i]);
+     }
+     
+     return result;
 }
 
-return sum(15,5);
+//call the method
+return getUser();
+
+//method to compare 1
+public bool Compare1(List<User> user,string lu1){
+     
+     return (user.Any(x => ($"{x.name[0].ToString().ToLower()}{x.lastname.ToLower()}") == lu1));
+     
+}
+
+//method to compare 2
+public bool Compare2(List<User> user,string lu1)
+{
+     return (user.Any(x => ($"{x.name[0].ToString().ToLower()}.{x.lastname.ToLower()}") == lu1));
+}

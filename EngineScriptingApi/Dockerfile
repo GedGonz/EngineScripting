@@ -7,16 +7,18 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["EngineScriptingApp.csproj", "."]
-RUN dotnet restore "./EngineScriptingApp.csproj"
+COPY ["EngineScriptingApi.csproj", "."]
+COPY ["../Engine/ServicesEngine.csproj", "../Engine/"]
+RUN dotnet restore "./EngineScriptingApi.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "EngineScriptingApp.csproj" -c Release -o /app/build
+RUN dotnet build "EngineScriptingApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "EngineScriptingApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "EngineScriptingApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "EngineScriptingApp.dll"]
+#ENTRYPOINT ["dotnet", "EngineScriptingApi.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet EngineScriptingApi.dll

@@ -10,10 +10,11 @@ namespace ServicesEngine.Engine
     {
         public async Task<object> ExecuteOnlyFuntion(string SciptTxt)
         {
-            var nameMethod = SciptTxt.TrimStart().Split(' ')[2].Split('(')[0];
             var user = new User();
-            var dat = getUser();
             var option = Options();
+
+            var nameMethod = GetNameMethod(SciptTxt);
+
             var script = CSharpScript.Create(SciptTxt, option, typeof(User));
                 script = script.ContinueWith(@"
                 public object getUser()
@@ -38,28 +39,20 @@ namespace ServicesEngine.Engine
             if (complie.Length > 0)
                 return new { ReturnValue = complie.Select(x => x.GetMessage()).Aggregate((current, value) => $"{current},{value}") };
             
-            var result = await script.RunAsync(user);
+                var result = await script.RunAsync(user);
 
             return new { result.ReturnValue };
         }
 
         public async Task<object> Execute(string SciptTxt)
         {
-            var nameMethod = ""; 
-
-            if (SciptTxt.TrimStart().StartsWith("p"))
-                nameMethod = SciptTxt.TrimStart().Split(' ')[2].Split('(')[0];
-            else
-                nameMethod = SciptTxt;
-
-            var user = new User();
             var option = Options();
             var script = CSharpScript.Create(SciptTxt, option);
             var complie = script.Compile();
             if (complie.Length > 0)
                 return new { ReturnValue = complie.Select(x => x.GetMessage()).Aggregate((current, value) => $"{current},{value}") };
-            var result = await script.RunAsync();
 
+            var result = await script.RunAsync();
             return new { result.ReturnValue };
         }
 
@@ -80,6 +73,12 @@ namespace ServicesEngine.Engine
         }
 
         public bool Convertir1(List<User> user,string lu1) => (user.Any(x => ($"{x.name[0].ToString().ToLower()}{x.lastname.ToLower()}") == lu1));
+
+        private static string GetNameMethod(string SciptTxt) {
+            int first = SciptTxt.IndexOf("bool") + "bool".Length;
+            int last = SciptTxt.LastIndexOf("}");
+            return  SciptTxt.Substring(first, last - first).Split('(')[0];
+        }
 
     }
 }

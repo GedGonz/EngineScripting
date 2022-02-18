@@ -9,10 +9,8 @@ export class FilecodeService {
   constructor(private http: HttpClient) { }
 
 
-  readCode1(){
-    return this.http.get('app/file/codeexample1.txt', {responseType: 'text'});
+  readCode(name:string){
+    return this.http.get(`app/file/${name}.txt`, {responseType: 'text'});
   }
-  readCode2(){
-    return this.http.get('app/file/codeexample2.txt', {responseType: 'text'});
-  }
+
 }

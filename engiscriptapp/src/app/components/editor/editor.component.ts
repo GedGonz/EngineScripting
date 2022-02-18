@@ -19,6 +19,7 @@ export class EditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateForm();
+    this.readcodeexample0();
   }
 
 
@@ -45,30 +46,39 @@ export class EditorComponent implements OnInit {
   }
 
   changeSelect(val:any){
+
     this.frmrun.get("script")?.setValue("");
+
+    if(val.value==0)
+      this.frmrun.get("script")?.setValue(this.readcodeexample0());
     if(val.value==1)
       this.frmrun.get("script")?.setValue(this.readcodeexample1()); 
-    else if(val.value==2)
-      this.frmrun.get("script")?.setValue(this.readcodeexample2()); 
+    else if( val.value==2)
+      this.frmrun.get("script")?.setValue(this.readcodeexample2());
+  }
 
+
+  readcodeexample0(){
+
+    this.fileservice.readCode("codeexample0").subscribe(data=>{
+      this.textexample=data;
+    });
+
+    return this.textexample
   }
 
   readcodeexample1(){
 
-    this.fileservice.readCode1().subscribe(data=>{
-
+    this.fileservice.readCode("codeexample1").subscribe(data=>{
       this.textexample=data;
-      
     });
 
     return this.textexample
   }
   readcodeexample2(){
 
-    this.fileservice.readCode2().subscribe(data=>{
-
+    this.fileservice.readCode("codeexample2").subscribe(data=>{
       this.textexample=data;
-      
     });
 
     return this.textexample

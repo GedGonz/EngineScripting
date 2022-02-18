@@ -5,9 +5,10 @@
         <h2>Run Code C#</h2> 
         <h4>select option</h4>
         <select class="form-control" [(ngModel)]="type" (change)="changeSelect($event.target)">
-            <option value="0" [attr.selected]='true'>--Seleccione--</option>
-            <option value="1">Only Function(example)</option>
-            <option value="2">Any code</option>
+            <option value="0" [attr.selected]='true'>Any code</option>
+            <option value="2" >Only Function(exercise1)</option>
+            <option value="1">Only Function(exercise2)</option>
+           
         </select>
         <form [formGroup]="frmrun">
             <textarea cols="3" rows="15" class="form-control editor" formControlName="script" [ngModel]="textexample">

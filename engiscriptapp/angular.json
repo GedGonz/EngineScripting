@@ -28,6 +28,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/app/file/codeexample0.txt",
               "src/app/file/codeexample1.txt",
               "src/app/file/codeexample2.txt"
             ],
@@ -103,6 +104,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
