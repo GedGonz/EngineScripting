@@ -1,0 +1,10 @@
+
+
+//example
+public double sum(int a, int b)
+{
+
+     return a + b;
+}
+//call the method
+return sum(15,5);

@@ -1,7 +1,20 @@
 
-//method to compare
-public bool Convertir1(List<User> user,string lu1){
+//this is an example of comparing a single function, the engine below executes the traversal and owns the two lists
+/*
+     var userText = new List<string>() { "ggonzalez", "caburto", "gmasaya", "hmorales", "clopez", "pgaitan" };
+
+     var usersObject =  new List<User>()
+     { 
+          new User(){ Id=1, name="Gerld", lastname="Gonzalez", Adress="masaya"},
+          new User(){ Id=1, name="Helen", lastname="Morales", Adress="managua"},
+          new User(){ Id=1, name="carlos", lastname="Lopez", Adress="managua"}
+     };
+*/
+
+//method to compare 1, does not need to be called
+public bool Compare1(List<User> user,string lu1){
      
      return (user.Any(x => ($"{x.name[0].ToString().ToLower()}{x.lastname.ToLower()}") == lu1));
      
 }
+
